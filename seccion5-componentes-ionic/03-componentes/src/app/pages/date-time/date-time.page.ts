@@ -11,7 +11,7 @@ export class DateTimePage implements OnInit {
 
   customYearValues = [2020, 1996];
   customDayShortNames = ['s\u00f8n', 'man', 'tir', 'ons', 'tor', 'fre', 'l\u00f8r'];
-  customPickerOptions: any;
+  
 
   constructor() { }
 
