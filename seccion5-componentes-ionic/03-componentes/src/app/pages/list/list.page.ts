@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import { Observable } from 'rxjs/Observable';
+
 import { IonList } from '@ionic/angular';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list',
