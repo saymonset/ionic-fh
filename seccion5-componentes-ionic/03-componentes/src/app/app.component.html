@@ -1,5 +1,8 @@
 <ion-app>
 
+
+  <!-- can be "xs", "sm", "md", "lg", or "xl" -->
+<ion-split-pane when="md" contentId="main">
   <ion-menu side="start" menuId="first" contentId="main">
     <ion-header>
       <ion-toolbar color="primary">
@@ -8,7 +11,9 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-menu-toggle *ngFor="let c of componentes  | async">
+        <ion-menu-toggle
+        autoHide="false"
+        *ngFor="let c of componentes  | async">
           <ion-item 
           [routerLink]="c.redirectTo" detail>
             <ion-icon slot="start" [name]="c.icon" color="primary"
@@ -24,4 +29,8 @@
   
 
   <ion-router-outlet id="main"></ion-router-outlet>
+</ion-split-pane>
+
+
+  
 </ion-app>
