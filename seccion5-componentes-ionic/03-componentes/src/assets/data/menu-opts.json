@@ -17,7 +17,7 @@
     {
       "icon": "radio-button-on",
       "name": "Botones y router",
-      "redirectTo": "/botones"
+      "redirectTo": "/button"
     },
     {
       "icon": "card",
