@@ -1,0 +1,9 @@
+<ion-content>
+   
+  <ion-slides mode="md" pager="md" scrollbar="md" [options]="md">
+    <ion-slide *ngFor="let pelicula of peliculasRecientes">
+      <h1> {{pelicula.title}}</h1>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>
