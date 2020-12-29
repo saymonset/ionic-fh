@@ -1,8 +1,10 @@
 <ion-content>
    
-  <ion-slides mode="md" pager="md" scrollbar="md" [options]="md">
+  <ion-slides [options]="slideOpts">
     <ion-slide *ngFor="let pelicula of peliculasRecientes">
-      <h1> {{pelicula.title}}</h1>
+         <ion-card>
+            <img [src]="pelicula.backdrop_path | imagen" alt="" srcset="">
+         </ion-card>
     </ion-slide>
   </ion-slides>
 

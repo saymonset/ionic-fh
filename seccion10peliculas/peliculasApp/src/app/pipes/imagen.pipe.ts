@@ -1,7 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 
-const URL = 'https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg';
+             
+const URL = environment.imgPath;//'https://image.tmdb.org/t/p';
 
 @Pipe({
   name: 'imagen'
@@ -9,8 +11,14 @@ const URL = 'https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg';
 export class ImagenPipe implements PipeTransform {
 
   transform(img: string, size: string = 'w500'): string {
-    
-    return null;
+
+    if ( !img) {
+      return './assets/no-image-banner.jpg'
+    }
+
+     const imgUrl = `${ URL }/${ size }${ img }`
+   // console.log('imgUrl', imgUrl);
+    return imgUrl;
   }
 
 }
