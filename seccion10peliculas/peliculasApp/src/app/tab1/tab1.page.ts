@@ -35,7 +35,7 @@ export class Tab1Page implements OnInit {
     .subscribe(resp=>{
       const arrTmp = [...this.populares, ...resp.results];
       this.populares = arrTmp;
-      console.log('populares',  this.populares);
+    //  console.log('populares',  this.populares);
     });
 
   }
