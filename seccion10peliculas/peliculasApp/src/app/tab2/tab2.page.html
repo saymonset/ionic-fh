@@ -12,9 +12,29 @@
                  animated
                  debounce="700"
                  [value]="textoBuscar"
-                 (ionChange)="buscar($event)">Title</ion-searchbar>
+                 (ionChange)="buscar($event)"></ion-searchbar>
 </ion-toolbar>
 
-<ion-content [fullscreen]="true">
+<ion-content>
+   <ion-grid>
+     <ion-row>
+          <ion-col text-center>
+              <ion-spinner name="crescent"></ion-spinner>
+          </ion-col>
+     </ion-row>
+   </ion-grid>
+  <ion-list>
+          <ion-list-header>
+               <ion-label>
+                   Ideas
+               </ion-label>
+          </ion-list-header>
+          <ion-item *ngFor="let idea of ideas"
+                     (click)="textoBuscar = idea">
+             <ion-label  color="primary">{{idea}}</ion-label>
+          </ion-item>
+         
+    
+  </ion-list>
    
 </ion-content>
