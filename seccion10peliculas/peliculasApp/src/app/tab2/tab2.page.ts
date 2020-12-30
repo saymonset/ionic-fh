@@ -7,6 +7,14 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
+  textoBuscar: string= '';
+
+  buscar(event){
+
+console.log(event);
+
+  }
+
   constructor() {}
 
 }
