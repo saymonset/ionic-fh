@@ -81,3 +81,12 @@ export interface Cast {
   credit_id: string;
   order: number;
 }
+
+export interface Genress {
+  genres: Genre[];
+}
+
+export interface Genre {
+  id: number;
+  name: string;
+}
