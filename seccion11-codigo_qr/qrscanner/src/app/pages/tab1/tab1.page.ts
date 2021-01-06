@@ -9,4 +9,22 @@ export class Tab1Page {
 
   constructor() {}
 
+  ionViewDidEnter(){
+      console.log('ViewDidEnter')
+  }
+  ionViewDidLeave(){
+    console.log('viewDidLeave')
+}
+
+  ionViewDidLoad(){
+    console.log('ViewDidLoad')
+  }
+
+  ionViewWillEnter(){
+    console.log(' viewWillEnter')
+  }
+
+  onViewWillLeave(){
+    console.log(' viewWillLeave')
+  }
 }
