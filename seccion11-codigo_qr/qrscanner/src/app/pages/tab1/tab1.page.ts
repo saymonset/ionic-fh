@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { DataLocalService } from '../../services/data-local.service';
 
 @Component({
   selector: 'app-tab1',
@@ -14,33 +15,39 @@ export class Tab1Page {
     allowSlideNext: false
   };
 
-  constructor(private barcodeScanner : BarcodeScanner) {}
+  constructor(private barcodeScanner : BarcodeScanner,
+              public dataLocalService: DataLocalService) {}
 
   ionViewDidEnter(){
-      console.log('ViewDidEnter')
+      //console.log('ViewDidEnter')
   }
   ionViewDidLeave(){
-    console.log('viewDidLeave')
+    //console.log('viewDidLeave')
 }
 
   ionViewDidLoad(){
-    console.log('ViewDidLoad')
+    //console.log('ViewDidLoad')
   }
 
   ionViewWillEnter(){
-    console.log(' viewWillEnter');
+    //console.log(' viewWillEnter');
     this.scan();
   }
 
   ionViewWillLeave(){
-    console.log(' viewWillLeave')
+    //console.log(' viewWillLeave')
   }
 
   scan(){
     this.barcodeScanner.scan().then(barcodeData => {
-      console.log('Barcode data', barcodeData);
+   //   console.log('Barcode data', barcodeData);
+      if (!barcodeData.cancelled){
+         this.dataLocalService.guardarRegistro(barcodeData.format, barcodeData.text);
+      }
      }).catch(err => {
-         console.log('Error', err);
+        // console.log('Error', err);
+          this.dataLocalService.guardarRegistro('QRCode', 'https://fernando-herrera.com');
+       
      });
   }
 }
