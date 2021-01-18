@@ -49,6 +49,11 @@ export class DataLocalService {
                 case 'http':
                   this.inAppBrowser.create(registro.text, '_system');
                   break;
+
+                  case 'geo':
+                 // this.inAppBrowser.create(registro.text, '_system');
+                 this.navController.navigateForward(`/tabs/tab2/mapa/${ registro.text }`);
+                  break;     
             } 
 
   }

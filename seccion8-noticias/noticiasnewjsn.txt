@@ -1,0 +1,18 @@
+ 
+
+https://newsapi.org/register/success
+
+
+saymon_set@hotmail.com
+12760187lo
+Registration complete
+
+Your API key is: 6de74af3c5b64cf9b1633872d8046185
+
+
+
+
+For help getting started please look at our getting started guide.
+
+We post API status updates and other news on our Twitter feed, so please follow us there if that's important to you:
+""
