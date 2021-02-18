@@ -21,9 +21,8 @@
     }
   },
   "server": {
-    "url": "http://192.168.43.242:8100",
     "cleartext": true,
-    "originalUrl": "http://192.168.43.242:8100",
-    "originalCleartext": true
+    "url": "http://localhost:8100",
+    "originalUrl": "http://192.168.43.3:8100"
   }
 }

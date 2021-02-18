@@ -40,7 +40,8 @@ export class Tab1Page {
 
   scan(){
     this.barcodeScanner.scan().then(barcodeData => {
-   //   console.log('Barcode data', barcodeData);
+      console.log('Barcode data', barcodeData);
+      console.log(barcodeData.format, barcodeData.text);
       if (!barcodeData.cancelled){
          this.dataLocalService.guardarRegistro(barcodeData.format, barcodeData.text);
       }
