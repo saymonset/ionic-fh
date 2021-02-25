@@ -62,11 +62,26 @@ export class DataLocalService {
     });
 
     console.log(arrTemp.join(''));
-    this.crearArchivoFiico(arrTemp.join(''));
+    this.crearArchivoFico(arrTemp.join(''));
   }
 
-  crearArchivoFiico(text: string){
+  crearArchivoFico(text: string){
             this.file.checkFile(this.file.dataDirectory, 'registros.csv')
-            .then();
+            .then(existe => {
+              console.log('Existe archivo?', existe);
+              return this.escribirEnArchivo(text);
+            }).catch(err=>{
+              return this.file.createFile(this.file.dataDirectory, 'registros.csv',false)
+              .then(creado=>{
+                return this.escribirEnArchivo(text);
+              }).catch(err2=>
+                console.log('No se pudo crear el archivo',err2));
+            })
+  }
+
+  async escribirEnArchivo(text: string){
+    await this.file.writeExistingFile(this.file.dataDirectory, 'registros.csv', text);
+    console.log('objeArchivo creado')
+    console.log(this.file.dataDirectory + '/registros.csv');
   }
 }

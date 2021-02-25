@@ -1,3 +1,16 @@
+ 
+ # Create proyecto
+   ionic start qrscanner2 tabs
+ 
+ # Antes de instlar plugin de cordova, se  debe instalar cordova
+    npm i -g cordova
+
+    
+ #   Instala para la escanear codigo QR
+    ionic cordova plugin add phonegap-plugin-barcodescanner    
+    npm install @ionic-native/barcode-scanner
+
+
  # listar disppositios en el cmd
   adb devices
 
@@ -35,9 +48,9 @@ ionic cordova platform add android
 # Live reload
 # To start a live-reload server run the following command.
 
-ionic capacitor run android -l
+# ionic capacitor run android -l
 
-ionic capacitor run android -l --host=192.168.43.242--external 
+ionic capacitor run android -l --host=192.168.43.242 --external 
 
 # Error al instalara un lugin capacitor
    # "@ionic-native/in-app-browser" has missing dependencies:  - @ionic-native/core
