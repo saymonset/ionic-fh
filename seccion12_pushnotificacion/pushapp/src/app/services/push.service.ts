@@ -47,9 +47,10 @@ export class PushService {
                 this.notificacionRecibida( noti );
                 });
 
-                this.oneSignal.handleNotificationOpened().subscribe((noti) => {
+                this.oneSignal.handleNotificationOpened().subscribe( async(noti) => {
                   // do something when a notification is opened
                   console.log('Notificacion abierta...', noti);
+                  await this.notificacionRecibida( noti.notification );
                 });
 
                 this.oneSignal.endInit();
@@ -80,7 +81,10 @@ export class PushService {
   }
 
   async cargarMensajes(){
+    //Borrar todos los mensajes
+    // this.storage.clear();
     this.mensajes = await this.storage.get('mensajes') || [];
+    return this.mensajes;
   }
 
 }
