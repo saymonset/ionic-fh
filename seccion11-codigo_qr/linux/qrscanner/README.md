@@ -30,3 +30,6 @@ Change package.json file @angular-devkit/build-angular": "~0.1000.0"
 rm -rf node_module
 npm i
 
+
+
+
