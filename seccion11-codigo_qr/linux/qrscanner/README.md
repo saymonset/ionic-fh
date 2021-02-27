@@ -61,6 +61,7 @@ ionic cordova platform add android
 # Live reload
 # To start a live-reload server run the following command.
 
+ionic cordova run android -l
 # ionic capacitor run android -l
 
 ionic capacitor run android -l --host=192.168.43.242 --external 
