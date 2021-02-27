@@ -10,7 +10,7 @@ export class HomePage implements OnInit{
 
   mensajes: OSNotificationPayload[] = [];
 
-  constructor(private pushService:PushService,
+  constructor(public pushService:PushService,
               private applicationRef: ApplicationRef) {}
 
   ngOnInit(): void {
@@ -23,10 +23,15 @@ export class HomePage implements OnInit{
 
      );
   }
-
+ 
   async ionViewWillEnter(){
       console.log('Will enter - Cargar mensajes');
       this.mensajes = await this.pushService.getMensajes();
+  }
+
+  async borrarMensajes(){
+    await  this.pushService.borrarMensajes();
+    this.mensajes = [];
   }
 
 }

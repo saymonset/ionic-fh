@@ -16,6 +16,8 @@ export class PushService {
   } */
 ];
 
+  userId: string;
+
   pushListener = new EventEmitter<OSNotificationPayload>();
 
   constructor(private oneSignal: OneSignal,
@@ -53,6 +55,12 @@ export class PushService {
                   await this.notificacionRecibida( noti.notification );
                 });
 
+                // Obtener id del susbscriptor
+                this.oneSignal.getIds().then(info => {
+                    this.userId = info.userId;
+                    console.log(this.userId);
+                });
+
                 this.oneSignal.endInit();
   }
 
@@ -85,6 +93,13 @@ export class PushService {
     // this.storage.clear();
     this.mensajes = await this.storage.get('mensajes') || [];
     return this.mensajes;
+  }
+
+  async borrarMensajes(){
+     //Borrar todos los mensajes
+   await  this.storage.clear();
+     this.mensajes = [];
+     this.guardarMensajes();
   }
 
 }
