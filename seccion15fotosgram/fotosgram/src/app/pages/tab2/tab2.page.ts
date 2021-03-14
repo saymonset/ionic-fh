@@ -15,7 +15,19 @@ declare var window: any;
 export class Tab2Page {
 
   tempImages: string[] = [];
+
+
+  capturedSnapURL:string;
+
+  cameraOptions: CameraOptions = {
+    quality: 20,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE
+  }
   cargandoGeo: boolean = false;
+
+
    
   post = {
     mensaje: '',
@@ -38,6 +50,10 @@ export class Tab2Page {
               coords: null,
               posicion: false
             };
+
+          
+         this.tempImages = [];   
+            
          this.route.navigateByUrl('/main/tabs/tab1');   
 
   }
@@ -65,6 +81,8 @@ export class Tab2Page {
         }); 
   }
 
+ 
+
   camara(){
     
             const options: CameraOptions = {
@@ -76,16 +94,49 @@ export class Tab2Page {
               sourceType: this.camera.PictureSourceType.CAMERA
             }
 
-            this.camera.getPicture(options).then((imageData) => {
-            // imageData is either a base64 encoded string or a file URI
-            // If it's base64 (DATA_URL):
-            // let base64Image = 'data:image/jpeg;base64,' + imageData;
-            const img = window.Ionic.WebView.convertFileSrc( imageData );
-            console.log(img);
-            this.tempImages.push(img);
-            }, (err) => {
-            // Handle error
-            });
+            this.procesarImagen( options);
+  }
+
+
+
+  libreria(){
+    
+    const options: CameraOptions = {
+      quality: 60,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+    }
+    this.procesarImagen( options);
+}
+
+
+    procesarImagen( options : CameraOptions){
+      this.camera.getPicture(options).then((imageData) => {
+        
+        const img = window.Ionic.WebView.convertFileSrc( imageData );
+
+        this.postsService.subirImagen( imageData );
+        this.tempImages.push(img);
+        }, (err) => {
+        // Handle error
+        });
+    }
+
+  takeSnap() {
+    this.camera.getPicture(this.cameraOptions).then((imageData) => {
+      // this.camera.DestinationType.FILE_URI gives file URI saved in local
+      // this.camera.DestinationType.DATA_URL gives base64 URI
+      
+      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.capturedSnapURL = base64Image;
+    }, (err) => {
+      
+      console.log(err);
+      // Handle error
+    });
   }
 
   

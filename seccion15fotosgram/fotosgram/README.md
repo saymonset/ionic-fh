@@ -55,6 +55,13 @@
 
 ionic cordova run android -l
 
+
+# File transfer
+ionic cordova plugin add cordova-plugin-file-transfer
+npm install @ionic-native/file-transfer
+# Deshabilitar capacitor
+# ionic integrations disable capacitor
+
 # Si sucede este error
 # Cannot find module '@angular-devkit…/utils' when trying to run ionic on android
 

@@ -11,6 +11,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AppComponent } from './app.component';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +27,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
                 useClass: IonicRouteStrategy,
               },
               Geolocation,
-              Camera
+              Camera,
+              FileTransfer
               ],
   bootstrap: [AppComponent],
 })
