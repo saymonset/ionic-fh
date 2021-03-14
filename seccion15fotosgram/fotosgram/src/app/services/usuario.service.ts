@@ -96,14 +96,10 @@ export class UsuarioService {
        this.navController.navigateRoot('/login');
        return Promise.resolve(false);
     }
-
-
     return new Promise<boolean>((resolve,reject)=>{
-
       const headers = new HttpHeaders({
         'x-token': this.token
       });
-
       this.httpClient.get<Usuario>(`${ URL }/user/`,{ headers })
       .subscribe(resp=>{
               if (resp['ok']){

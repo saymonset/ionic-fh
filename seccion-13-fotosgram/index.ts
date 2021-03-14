@@ -18,13 +18,16 @@ server.app.use( bodyParser.json() );
 
 // Configurar CORS
        server.app.use(cors({origin:true, credentials:true}));
+      // app.use(cors())
     
 
 // rutas de mi aplicacion
 server.app.use('/user', userRoutes);
 server.app.use('/posts', postRoutes);
 
-mongoose.connect('mongodb://localhost:27017/fotosgram', {
+
+//mongodb+srv://samibd:12760187lo@micluster.mayzd.mongodb.net/fotosgram?retryWrites=true&w=majority
+mongoose.connect('mongodb+srv://samibd:12760187lo@micluster.mayzd.mongodb.net/fotosgram?retryWrites=true&w=majority', {
     useNewUrlParser:true,
     useCreateIndex:true
 }, ( err )=>{

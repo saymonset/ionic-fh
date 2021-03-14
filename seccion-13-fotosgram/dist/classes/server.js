@@ -10,7 +10,8 @@ var Server = /** @class */ (function () {
         this.app = express_1.default();
     }
     Server.prototype.start = function (callback) {
-        this.app.listen(this.port, callback);
+        //server.listen(3000,"0.0.0.0");
+        this.app.listen(this.port, "0.0.0.0", callback);
     };
     return Server;
 }());

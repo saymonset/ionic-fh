@@ -18,10 +18,12 @@ server.app.use(body_parser_1.default.json());
 server.app.use(express_fileupload_1.default({ useTempFiles: true }));
 // Configurar CORS
 server.app.use(cors_1.default({ origin: true, credentials: true }));
+// app.use(cors())
 // rutas de mi aplicacion
 server.app.use('/user', usuario_1.default);
 server.app.use('/posts', post_1.default);
-mongoose_1.default.connect('mongodb://localhost:27017/fotosgram', {
+//mongodb+srv://samibd:12760187lo@micluster.mayzd.mongodb.net/fotosgram?retryWrites=true&w=majority
+mongoose_1.default.connect('mongodb+srv://samibd:12760187lo@micluster.mayzd.mongodb.net/fotosgram?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true
 }, function (err) {
